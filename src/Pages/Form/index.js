@@ -30,7 +30,7 @@ const FormData = () =>{
     <div className='row'>
       <div className='col-12 col-md-6'>
         
-        <form  className='bg-dark text-white p-3 border rounded'>
+        <form  className='bg-dark text-white p-3 border rounded' onSubmit={handleSubmit(onSubmit)}>
           <div className='form-group'>
             <label htmlFor=''>Nombre:</label>
             <input {...register("Name")} placeholder='Nombre' required  className='form-control'  />
@@ -54,7 +54,7 @@ const FormData = () =>{
           <button
             className='btn btn-success mt-3 ms-auto'
             
-            type='button'
+            type='submit'
           >
             Guardar Producto
           </button>
