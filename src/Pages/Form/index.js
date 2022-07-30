@@ -36,15 +36,19 @@ const FormData = () =>{
             <input {...register("Name")} placeholder='Nombre' required  className='form-control'  />
           </div>
           <div className='form-group'>
-            <label htmlFor=''>Correo</label>
+            <label htmlFor=''>Marca:</label>
+            <input {...register("Marca")} placeholder='Marca' required  className='form-control'  />
+          </div>
+          <div className='form-group'>
+            <label htmlFor=''>Descripción</label>
             <input {...register("Description")} placeholder='Descripción' required  className='form-control' />
           </div>
           <div className='form-group'>
-            <label htmlFor=''>Generación</label>
+            <label htmlFor=''>Precio</label>
             <input {...register("Price")} placeholder='Precio' required  className='form-control' />
           </div>
           <div className='form-group'>
-            <label htmlFor=''>Generación</label>
+            <label htmlFor=''>Categoria</label>
             <input {...register("Category")} placeholder='Categoria' required  className='form-control' />
           </div>
           <div className='form-group'>
@@ -54,7 +58,7 @@ const FormData = () =>{
           <button
             className='btn btn-success mt-3 ms-auto'
             
-            type='button'
+            type='submit'
           >
             Guardar Producto
           </button>
