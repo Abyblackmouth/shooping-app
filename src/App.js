@@ -12,6 +12,7 @@ import {
 } from 'reactstrap'
 import { Link, Routes, Route } from 'react-router-dom'
 import FormData from './Pages/Form'
+import ShoppingCar from './Pages/ShoppingCar'
 
 function App () {
   const [isOpen, setIsOpen] = useState(false)
@@ -41,6 +42,11 @@ function App () {
                 Nueva Publicación
               </Link>
             </NavItem>
+            <NavItem>
+              <Link to='/ShoppingCar' className='nav-link'>
+                Carrito
+              </Link>
+            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
@@ -51,6 +57,7 @@ function App () {
             <Routes>
               <Route path='/' element={<h1>bienvenido a nuestra app</h1>} />
               <Route path='/FormData' element={<FormData/>} />
+              <Route path='/ShoppingCar' element={<ShoppingCar/>} />
             </Routes>
           </div>
           
