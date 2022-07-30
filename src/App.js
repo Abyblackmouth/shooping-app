@@ -46,18 +46,14 @@ function App () {
       </Navbar>
       <div className='container-fluid'>
         <div className='row'>
-          <div className='col-3'>
-            <h1>aside 1</h1>
-          </div>
+          
           <div className='col-6'>
             <Routes>
               <Route path='/' element={<h1>bienvenido a nuestra app</h1>} />
-              <Route path='/FromData' element={<FormData/>} />
+              <Route path='/FormData' element={<FormData/>} />
             </Routes>
           </div>
-          <div className='col-3'>
-            <h1>aside 2</h1>
-          </div>
+          
         </div>
       </div>
     </div>
