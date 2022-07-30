@@ -52,7 +52,7 @@ function App () {
           <div className='col-6'>
             <Routes>
               <Route path='/' element={<h1>bienvenido a nuestra app</h1>} />
-              <Route path='/FromData' element={<FormData/>} />
+              <Route path='/FormData' element={<FormData/>} />
             </Routes>
           </div>
           <div className='col-3'>
