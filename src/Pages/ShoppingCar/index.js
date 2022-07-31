@@ -1,66 +1,43 @@
 import{Table} from 'reactstrap'
-
+ 
 const ShoppingCar = () =>{
     return(
-
 <Table dark>
   <thead>
     <tr>
-      <th>
-        #
+    <th>
+        Imagen
       </th>
       <th>
-        First Name
+        Producto
       </th>
       <th>
-        Last Name
+        Precio
       </th>
       <th>
-        Username
+        Cantidad
+      </th>
+      <th>
+        Total
       </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th scope="row">
-        1
+        <img src='image' alt="" />
       </th>
       <td>
-        Mark
+        'Producto'
       </td>
       <td>
-        Otto
+        $$
       </td>
       <td>
-        @mdo
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">
-        2
-      </th>
-      <td>
-        Jacob
+        #
       </td>
       <td>
-        Thornton
-      </td>
-      <td>
-        @fat
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">
-        3
-      </th>
-      <td>
-        Larry
-      </td>
-      <td>
-        the Bird
-      </td>
-      <td>
-        @twitter
+        $$$
       </td>
     </tr>
   </tbody>
