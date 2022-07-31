@@ -10,8 +10,11 @@ import {
   NavItem,
   NavLink
 } from 'reactstrap'
+
 import { Link, Routes, Route } from 'react-router-dom'
 import FormData from './Pages/Form'
+import Products from './Pages/Products'
+import ProductDetail from './Pages/ProductDetail'
 
 function App () {
   const [isOpen, setIsOpen] = useState(false)
@@ -41,16 +44,26 @@ function App () {
                 Nueva Publicación
               </Link>
             </NavItem>
+            <NavItem>
+              <Link to='/products' className='nav-link'>
+                Productos
+              </Link>
+            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
       <div className='container-fluid'>
         <div className='row'>
           
-          <div className='col-6'>
+          <div className='col-12'>
             <Routes>
               <Route path='/' element={<h1>bienvenido a nuestra app</h1>} />
               <Route path='/FormData' element={<FormData/>} />
+              <Route path='/products' element={<Products  />} />
+              <Route
+                path='/product-detail/:id'
+                element={<ProductDetail />}
+              /> 
             </Routes>
           </div>
           
