@@ -1,6 +1,8 @@
 import{Table} from 'reactstrap'
  
-const ShoppingCar = () =>{
+const ShoppingCar = (props) =>{
+    const { product, addProductHandler, removeProductHandler } = props
+  const {  Image, Name, Description, Category, Price} = product
     return(
 <Table dark>
   <thead>
