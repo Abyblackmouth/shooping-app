@@ -27,13 +27,13 @@ const ShoppingCar = (props) =>{
   <tbody>
     <tr>
       <th scope="row">
-        <img src='image' alt="" />
+        <img src={Image} alt="" />
       </th>
       <td>
-        'Producto'
+        {product}
       </td>
       <td>
-        $$
+        {price}
       </td>
       <td>
         #
