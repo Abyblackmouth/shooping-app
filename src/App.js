@@ -10,9 +10,12 @@ import {
   NavItem,
   NavLink
 } from 'reactstrap'
+
 import { Link, Routes, Route } from 'react-router-dom'
 import FormData from './Pages/Form'
 import Products from './Pages/Products'
+import ProductDetail from './Pages/ProductDetail'
+import Cart from './Pages/Cart'
 
 
 function App () {
@@ -43,17 +46,28 @@ function App () {
                 Productos  {/* // editado por abraham */}
               </Link>
             </NavItem>
+            <NavItem>
+              <Link to='/Cart' className='nav-link'>
+                Carrito
+              </Link>
+            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
       <div className='container-fluid'>
         <div className='row'>
           
-          <div className='col-6'>
+          <div className='col-12'>
             <Routes>
               <Route path='/' element={<h1>bienvenido a nuestra app</h1>} />
               <Route path='/FormData' element={<FormData/>} />
-              <Route path='/ProductsData' element={<Products/>} /> {/*editado por abraham*/}
+              <Route path='/ProductsData' element={<Products  />} />
+              <Route
+                path='/product-detail/:id'
+                element={<ProductDetail />}
+              /> 
+              <Route path='/Cart/:id/:cant' element={<Cart  />} />
+              
             </Routes>
           </div>
           
