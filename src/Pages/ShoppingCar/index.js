@@ -1,10 +1,15 @@
 import{Table} from 'reactstrap'
+import ProductDetail from '../ProductDetail'
  
 const ShoppingCar = (props) =>{
-    const { product, addProductHandler, removeProductHandler } = props
-  const {  Image, Name, Description, Category, Price} = product
-    return(
-<Table dark>
+ const params = useParams()
+ console.log('params',params)
+  // const {  Image, Name, Description, Category, Price} = product
+    return(  
+      <>
+      <h1>Productos seleccionados</h1>
+      <div row row-cols-1 row-cols-md-2 g-4 >
+        <Table dark>
   <thead>
     <tr>
     <th>
@@ -25,15 +30,16 @@ const ShoppingCar = (props) =>{
     </tr>
   </thead>
   <tbody>
-    <tr>
+  
+    {/* <tr>
       <th scope="row">
-        <img src={Image} alt="" />
+        <img src='imagen' alt="" />
       </th>
       <td>
-        {product}
+       producto
       </td>
       <td>
-        {price}
+        precio
       </td>
       <td>
         #
@@ -41,9 +47,13 @@ const ShoppingCar = (props) =>{
       <td>
         $$$
       </td>
-    </tr>
+    </tr> */}
+
+
   </tbody>
 </Table>
+      </div>
+      </>
     )
 }
 

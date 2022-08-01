@@ -10,9 +10,12 @@ import {
   NavItem,
   NavLink
 } from 'reactstrap'
+
 import { Link, Routes, Route } from 'react-router-dom'
 import FormData from './Pages/Form'
 import ShoppingCar from './Pages/ShoppingCar'
+import Products from './Pages/Products'
+import ProductDetail from './Pages/ProductDetail'
 
 function App () {
   const [isOpen, setIsOpen] = useState(false)
@@ -26,6 +29,8 @@ function App () {
   }
 
   return (
+
+   
     <div className='App'>
       <Navbar expand='md' color='dark' container='xl' dark>
         <NavbarBrand href='/'>reactstrap</NavbarBrand>
@@ -33,6 +38,7 @@ function App () {
         <Collapse isOpen={isOpen} navbar>
           <Nav className='me-auto' navbar>
             <NavItem>
+
               <Link to='/FormData' className='nav-link'>
                 Formulario
               </Link>
@@ -44,7 +50,9 @@ function App () {
             </NavItem>
             <NavItem>
               <Link to='/ShoppingCar' className='nav-link'>
-                Carrito
+                Carrito</Link>
+              <Link to='/products' className='nav-link'>
+                Productos
               </Link>
             </NavItem>
           </Nav>
@@ -53,11 +61,16 @@ function App () {
       <div className='container-fluid'>
         <div className='row'>
           
-          <div className='col-6'>
+          <div className='col-12'>
             <Routes>
               <Route path='/' element={<h1>bienvenido a nuestra app</h1>} />
               <Route path='/FormData' element={<FormData/>} />
               <Route path='/ShoppingCar' element={<ShoppingCar/>} />
+              <Route path='/products' element={<Products  />} />
+              <Route
+                path='/product-detail/:id'
+                element={<ProductDetail />}
+              /> 
             </Routes>
           </div>
           
