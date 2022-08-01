@@ -17,6 +17,7 @@ import Products from './Pages/Products'
 import ProductDetail from './Pages/ProductDetail'
 import Cart from './Pages/Cart'
 
+
 function App () {
   const [isOpen, setIsOpen] = useState(false)
   const [selectedRoute, setSelectedRoute] = useState('')
@@ -41,16 +42,10 @@ function App () {
               </Link>
             </NavItem>
             <NavItem>
-              <Link to='' className='nav-link'>
-                Nueva Publicación
+              <Link to='/ProductsData' className='nav-link'>
+                Productos  {/* // editado por abraham */}
               </Link>
             </NavItem>
-            <NavItem>
-              <Link to='/Products' className='nav-link'>
-                Productos
-              </Link>
-            </NavItem>
-
             <NavItem>
               <Link to='/Cart' className='nav-link'>
                 Carrito
@@ -66,12 +61,13 @@ function App () {
             <Routes>
               <Route path='/' element={<h1>bienvenido a nuestra app</h1>} />
               <Route path='/FormData' element={<FormData/>} />
-              <Route path='/Products' element={<Products  />} />
+              <Route path='/ProductsData' element={<Products  />} />
               <Route
                 path='/product-detail/:id'
                 element={<ProductDetail />}
               /> 
               <Route path='/Cart/:id/:cant' element={<Cart  />} />
+              
             </Routes>
           </div>
           
