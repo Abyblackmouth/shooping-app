@@ -12,6 +12,8 @@ import {
 } from 'reactstrap'
 import { Link, Routes, Route } from 'react-router-dom'
 import FormData from './Pages/Form'
+import Products from './Pages/Products'
+
 
 function App () {
   const [isOpen, setIsOpen] = useState(false)
@@ -37,8 +39,8 @@ function App () {
               </Link>
             </NavItem>
             <NavItem>
-              <Link to='' className='nav-link'>
-                Nueva Publicación
+              <Link to='/ProductsData' className='nav-link'>
+                Productos  {/* // editado por abraham */}
               </Link>
             </NavItem>
           </Nav>
@@ -51,6 +53,7 @@ function App () {
             <Routes>
               <Route path='/' element={<h1>bienvenido a nuestra app</h1>} />
               <Route path='/FormData' element={<FormData/>} />
+              <Route path='/ProductsData' element={<Products/>} /> {/*editado por abraham*/}
             </Routes>
           </div>
           
