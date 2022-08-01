@@ -7,6 +7,7 @@ const Products = ({ hasAsides }) => {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
+
     const getProducts = async () => {
       let productsList = await  fetch('https://datashopping-app-default-rtdb.firebaseio.com/.json')
 

@@ -15,6 +15,7 @@ import { Link, Routes, Route } from 'react-router-dom'
 import FormData from './Pages/Form'
 import Products from './Pages/Products'
 import ProductDetail from './Pages/ProductDetail'
+import Cart from './Pages/Cart'
 
 function App () {
   const [isOpen, setIsOpen] = useState(false)
@@ -45,8 +46,14 @@ function App () {
               </Link>
             </NavItem>
             <NavItem>
-              <Link to='/products' className='nav-link'>
+              <Link to='/Products' className='nav-link'>
                 Productos
+              </Link>
+            </NavItem>
+
+            <NavItem>
+              <Link to='/Cart' className='nav-link'>
+                Carrito
               </Link>
             </NavItem>
           </Nav>
@@ -59,11 +66,12 @@ function App () {
             <Routes>
               <Route path='/' element={<h1>bienvenido a nuestra app</h1>} />
               <Route path='/FormData' element={<FormData/>} />
-              <Route path='/products' element={<Products  />} />
+              <Route path='/Products' element={<Products  />} />
               <Route
                 path='/product-detail/:id'
                 element={<ProductDetail />}
               /> 
+              <Route path='/Cart/:id/:cant' element={<Cart  />} />
             </Routes>
           </div>
           

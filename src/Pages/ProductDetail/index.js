@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 
+import { Link } from 'react-router-dom'
+
 const ProductDetail = () => {
   const [ cantProd, setCantProd ] =  useState( 0 )
   const [selectedProduct, setSelectedProduct] = useState({})
@@ -29,6 +31,7 @@ const ProductDetail = () => {
   }, [])
 
   const { Image, Name, Description, Category, Price } = selectedProduct
+
   const goBackHandler = () => {
     navigate('/products')
   }
@@ -87,8 +90,9 @@ const ProductDetail = () => {
                     
                   </div>
                   
-
-                  <button type="button" className="btn btn-primary" onClick={clickAddCart} > Agregar al Carrito </button>
+                  <Link to={`/Cart/${id}/${cantProd}`}>
+                    <button type="button" className="btn btn-primary" onClick={clickAddCart} > Agregar al Carrito </button>
+                  </Link>
                 </div>
 
                 <div className='col-12 border border-1'> 
