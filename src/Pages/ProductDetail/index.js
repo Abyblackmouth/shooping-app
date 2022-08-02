@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import Products from '../Products'
 
 import { Link } from 'react-router-dom'
 
@@ -15,9 +16,16 @@ const ProductDetail = () => {
   const clickAddCant = () =>{ setCantProd ( cantProd + 1 )  }
   const clickMinCant = () =>{ setCantProd ( cantProd == 0? 0: cantProd - 1 )  }
 
-  const clickAddCart = () =>{ console.log( cantProd ) }
-
+  const clickAddCart = id =>{      
+      const selectedProducts = selectedProduct.find(product => product.id === id)
+      console.log(selectedProducts)
+      setSelectedProduct([...selectedProducts,{ ...selectedProduct, purchased: true }
+      ])
+    
+  }
+  console.log('valor de set selectedProduct',setSelectedProduct)
   useEffect(() => {
+
     const getProductById = async () => {
       let result = await fetch(`https://datashopping-app-default-rtdb.firebaseio.com/${id}.json`)
 
@@ -30,7 +38,7 @@ const ProductDetail = () => {
     getProductById()
   }, [])
 
-  const { Image, Name, Description, Category, Price } = selectedProduct
+  const { Image, Name, Description, Category, Price, } = selectedProduct
 
   const goBackHandler = () => {
     navigate('/products')

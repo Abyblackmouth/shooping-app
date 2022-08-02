@@ -13,6 +13,7 @@ import {
 
 import { Link, Routes, Route } from 'react-router-dom'
 import FormData from './Pages/Form'
+import ShoppingCar from './Pages/ShoppingCar'
 import Products from './Pages/Products'
 import ProductDetail from './Pages/ProductDetail'
 import Cart from './Pages/Cart'
@@ -30,6 +31,8 @@ function App () {
   }
 
   return (
+
+   
     <div className='App'>
       <Navbar expand='md' color='dark' container='xl' dark>
         <NavbarBrand href='/'>reactstrap</NavbarBrand>
@@ -37,6 +40,7 @@ function App () {
         <Collapse isOpen={isOpen} navbar>
           <Nav className='me-auto' navbar>
             <NavItem>
+
               <Link to='/FormData' className='nav-link'>
                 Formulario
               </Link>
