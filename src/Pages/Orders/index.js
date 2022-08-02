@@ -94,9 +94,9 @@ const Orders = (  ) => {
                 <tr>
                     <th scope="row">{ orderId }</th>
                     
-                    <td > <img src={Image} height='45' width='45' className='card-img-top' alt='...' /></td>
-                    <td >{Name}</td>
-                    <td>{Price}</td>
+                    <td > <img src={Image} height='45' width='35' className='card-img-top' alt='...' /></td>
+                    <td > {Name} </td>
+                    <td > {Price} </td>
                 </tr>
                 
         /*         <div className='card'>
