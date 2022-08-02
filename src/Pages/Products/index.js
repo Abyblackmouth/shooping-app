@@ -53,7 +53,8 @@ const Products = () => {
                                     <div className='card-body'>
                                         <h5 className='card-title'>{Image}</h5>
                                         <p className='card-text'>{Name}</p>
-                                        <p className='card-text'>{Price}</p>
+                                        <p className='card-text'>{Marca}</p>
+                                        <p className='card-text'>${Price}</p>
                                     </div>
                     
                             </Link >
