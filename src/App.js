@@ -17,6 +17,7 @@ import ShoppingCar from './Pages/ShoppingCar'
 import Products from './Pages/Products'
 import ProductDetail from './Pages/ProductDetail'
 import Cart from './Pages/Cart'
+import Orders from './Pages/Orders'
 
 
 function App () {
@@ -24,10 +25,23 @@ function App () {
   const [selectedRoute, setSelectedRoute] = useState('')
   const toggle = () => setIsOpen(!isOpen)
 
+  const [ listOrder, setListOrder ] = useState([])
+
   const linkHandler = event => {
     const route = event.target.name
     setSelectedRoute(route)
     console.log(route)
+  }
+
+  const btnAddCart = ( producto ) => {
+
+    console.log( "hizo click", producto )
+
+    setListOrder( [ ...listOrder, producto ] )
+
+    
+
+
   }
 
   return (
@@ -55,6 +69,12 @@ function App () {
                 Carrito
               </Link>
             </NavItem>
+
+            <NavItem>
+              <Link to='/Orders' className='nav-link'>
+                Lista Ordenes Compra
+              </Link>
+            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
@@ -65,14 +85,17 @@ function App () {
             <Routes>
               <Route path='/' element={<h1>bienvenido a nuestra app</h1>} />
               <Route path='/FormData' element={<FormData/>} />
-              <Route path='/ProductsData' element={<Products  />} />
+              <Route path='/ProductsData' element={<Products btnAddCart = { btnAddCart } />} />
               <Route
                 path='/product-detail/:id'
                 element={<ProductDetail />}
               /> 
-              <Route path='/Cart/:id/:cant' element={<Cart  />} />
+              <Route path='/Cart' element={<Cart listOrder= {listOrder} />} />
+              
+              <Route path='/Orders' element={<Orders/>} />
               
             </Routes>
+            
           </div>
           
         </div>
