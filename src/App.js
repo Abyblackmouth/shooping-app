@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
@@ -80,4 +78,3 @@ function App () {
 }
 
 export default App
->>>>>>> 0779e0576e97970e76ac6efdef9ea84273e2605f

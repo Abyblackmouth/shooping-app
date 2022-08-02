@@ -5,7 +5,7 @@ const Cart = () => {
     <>
     
         <div className='col-12 col-md-6'>
-            <h1>Carrtito</h1>
+            <h1>Carrito</h1>
 
         </div>
     </>
