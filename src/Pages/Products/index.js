@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 const Products = ( props ) => {
     const [products, setProducts] = useState([])
     const { btnAddCart } = props
+    const [textFilter, settextFilter] = useState("")
 
     useEffect(() => {
 
@@ -37,9 +38,48 @@ const Products = ( props ) => {
         btnAddCart( producto )
     }
 
+  /*   const searchEvent = ( event ) =>{
+
+
+        console.log("Click", event.target.value)
+        console.log(products)
+        let filterProduct = products.map(product =>{
+           return product.Name.includes(event.target.value) 
+        })
+        console.log(filterProduct)
+        setProducts(filterProduct)
+    }
+ */
+
+    const searchEvent = (event) =>{
+      
+        settextFilter(event.target.value)
+        
+    }
+
+
+    const search = () =>{
+      
+        const value = textFilter
+        console.log(products)
+        const result = products.filter((cv,index)=>{
+            console.log(cv.Category)
+            console.log(value)
+        return cv.Category === value
+            })
+            setProducts(result)    
+    }
+
     return (
         <>
 
+            <div className="row">
+                <div>
+                    <input type="text" placeholder='Search' onChange={searchEvent}/>
+                    <button className="btn btn-primary" onClick={search}>Buscar</button>
+                </div>
+            </div>
+            
             <div className='col-12 col-md-12'>
                 <div className='row row cols-1 row-cols-md-6 g-4'>
                     {products.map( producto => {
@@ -57,12 +97,14 @@ const Products = ( props ) => {
                         return (
 
                             <div className='card'>
-                                                
-                                <img src={Image} className='card-img-top' alt='...' />
-                                <div className='card-body'>
-                                    <h5 className='card-title'>{Name}</h5>
-                                    <p className='card-text'>{Price}</p>                                            
-                                </div>
+             
+                                    <img src={Image} className='card-img-top' alt='...' />
+                                    <div className='card-body'>
+                                        <h5 className='card-title'>{Image}</h5>
+                                        <p className='card-text'>{Name}</p>
+                                        <p className='card-text'>{Marca}</p>
+                                        <p className='card-text'>${Price}</p>
+                                    </div>
                     
                                 <Link to={`/Product-Detail/${id}`}> 
                                     <button className="btn btn-primary mb-3">Ver detalle</button>
