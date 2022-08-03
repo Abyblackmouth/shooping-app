@@ -14,17 +14,22 @@ const SearchComponent = () =>{
     }
     productsData()
 
+
+
+    useEffect(()=>{
+        productsData()
+    },[])
+
+    return(
+        <>
+            <div>
+                <input value={search} type="text" placeholder='Search'/>
+            </div>
+        
+        </>
+
+    )
 }
-
-useEffect(()=>{
-    productsData()
-},[])
-
-return(
-    <div>
-        <imput value={search} type="text" placeholder='Search'/>
-    </div>
-)
 
 
 
