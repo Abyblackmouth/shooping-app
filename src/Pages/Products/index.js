@@ -8,20 +8,7 @@ const Products = ( props ) => {
 
     useEffect(() => {
 
-        const AllProducts = async () => {
-            let productsList = await fetch('https://datashopping-app-default-rtdb.firebaseio.com/.json')
-            productsList = await productsList.json()
-            console.log("productsList", Object.entries(productsList))
-            let productsList1 = Object.entries(productsList)
-            let productsList2 = productsList1.map(prod => {
-                console.log("prod", prod[1])
-                return { ...prod[1], id: prod[0] }
-            })
-
-            console.log("productsList 3", productsList2)
-
-            setProducts(productsList2)
-        }
+        
 
         AllProducts()
 
@@ -30,6 +17,20 @@ const Products = ( props ) => {
     }, [])
     console.log(products)
 
+    const AllProducts = async () => {
+        let productsList = await fetch('https://datashopping-app-default-rtdb.firebaseio.com/.json')
+        productsList = await productsList.json()
+        console.log("productsList", Object.entries(productsList))
+        let productsList1 = Object.entries(productsList)
+        let productsList2 = productsList1.map(prod => {
+            console.log("prod", prod[1])
+            return { ...prod[1], id: prod[0] }
+        })
+
+        console.log("productsList 3", productsList2)
+
+        setProducts(productsList2)
+    }
 
 
     const btnHandler = ( producto ) =>{
@@ -54,6 +55,12 @@ const Products = ( props ) => {
     const searchEvent = (event) =>{
       
         settextFilter(event.target.value)
+
+        console.log( event.target.value.length )
+        if ( event.target.value.length == 0  ) {
+
+            AllProducts()
+        }
         
     }
 
@@ -62,21 +69,33 @@ const Products = ( props ) => {
       
         const value = textFilter
         console.log(products)
+
         const result = products.filter((cv,index)=>{
             console.log(cv.Category)
             console.log(value)
-        return cv.Category === value
-            })
-            setProducts(result)    
+            
+            let txtName = cv.Name ? cv.Name.toLowerCase() : ""
+            let txtCategoria = cv.Category ? cv.Category.toLowerCase() : ""
+            let txtMarca = cv.Marca ? cv.Marca.toLowerCase() : ""
+
+            return txtName.includes( value.toLowerCase() ) || txtCategoria.includes( value.toLowerCase() ) 
+                || txtMarca.includes( value.toLowerCase() )
+        })
+        
+        setProducts(result)    
     }
 
     return (
         <>
 
             <div className="row">
-                <div>
-                    <input type="text" placeholder='Search' onChange={searchEvent}/>
-                    <button className="btn btn-primary" onClick={search}>Buscar</button>
+                <div className='col-12 col-md-3'>
+                </div>
+                <div className='col-12 col-md-3'>
+                    <input type="text" placeholder='Search' className="form-control m-3" onChange={searchEvent}/>                    
+                </div>
+                <div className='col-12 col-md-3'>                    
+                    <button className="btn btn-primary m-3" onClick={search}>Buscar</button>
                 </div>
             </div>
             
@@ -100,7 +119,7 @@ const Products = ( props ) => {
              
                                     <img src={Image} className='card-img-top' alt='...' />
                                     <div className='card-body'>
-                                        <h5 className='card-title'>{Image}</h5>
+                                     
                                         <p className='card-text'>{Name}</p>
                                         <p className='card-text'>{Marca}</p>
                                         <p className='card-text'>${Price}</p>
